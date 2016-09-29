@@ -1,0 +1,121 @@
+Canapé,307,Aperitivos,13,0
+Muesli,29,Aperitivos,36,0
+Nachos de maiz,19,Aperitivos,54,0
+Palomitas,12,Aperitivos,27,0
+Patatas fritas,69,Aperitivos,108,0
+Beicon ahumado,115,Aperitivos,72,0
+Azucar,14,Azucar,18,0
+Caramelo,45,Azucar,81,0
+Caramelo de miel,38,Azucar,135,0
+Sirope,29,Azucar,36,0
+Algodón,9,campo,30,1
+Cacao,19,campo,480,1
+Fresa,11,campo,60,1
+Maiz,3,campo,5,1
+Patata,17,campo,240,1
+Pimiento,20,campo,300,1
+Pino,15,campo,180,1
+Seda,33,campo,900,1
+Trigo,1,campo,2,1
+Zanahoria,5,campo,10,1
+Caña de azucar,7,campo,20,1
+Tomate,13,campo,120,1
+Arbol de caucho,,campo,720,1
+Chocolate,108,Caramelos,135,0
+Judias de gominola,79,Caramelos,108,0
+Nube de miel,82,Caramelos,243,0
+Palito de caramelo,105,Caramelos,216,0
+Piruleta,117,Caramelos,270,0
+Caramelo tostado,112,Caramelos,162,0
+Panal,22,colmena,360,1
+Batido,30,Comida Rápida,15,0
+Patata asada,111,Comida Rápida,50,0
+Patatas fritas,88,Comida Rápida,60,0
+Hamburguesa con queso,,Comida Rápida,30,0
+Sandwich,80,Comida Rápida,40,0
+Bisagra,40,especial,,1
+cinta americana,40,especial,,1
+Clavo,100,especial,,1
+Destornillador,40,especial,,1
+Hacha,200,especial,,1
+Ladrillos,40,especial,,1
+Losa,40,especial,,1
+Madera,40,especial,,1
+Martillo,100,especial,,1
+Pala,150,especial,,1
+Pintura,100,especial,,1
+Sierra,300,especial,,1
+Ciruela,72,fruta isla tropical,540,1
+Melocotón,34,fruta isla tropical,540,1
+Plátano,58,fruta isla tropical,540,1
+Lingote de bronce,96,fundicion,60,1
+Lingote de oro,204,fundicion,180,1
+Lingote de platino,300,fundicion,240,1
+Lingote plata,144,fundicion,120,1
+Huevo,10,Gallinero,,1
+Goma,35,Goma,54,0
+Pegamento,111,Goma,108,0
+Plastico,73,Goma,81,0
+Helado,39,Helados,28,0
+Polo,87,Helados,228,0
+Polo de hielo,45,Helados,85,0
+Sorbete de piña,343,Helados,142,0
+Yogur helado,87,Helados,171,0
+Sandía,49,Isla frutia,240,1
+Aceitunas,69,Isla oliva,399,1
+Lima,97,Isla oliva,240,1
+Uvas,48,Isla oliva,240,1
+Coco,84,Isla tropico,540,1
+Piña,117,Isla tropico,540,1
+Nata,12,Lacteos,12,0
+Queso,25,Lacteos,24,0
+Yogur,53,Lacteos,72,0
+Yogur de melocoton,157,Lacteos,96,0
+Mantequilla,,Lacteos,48,0
+Mermelada de ciruela,299,Mermelada,240,0
+Mermelada de fresa,41,Mermelada,90,0
+Mermelada de melocoton,133,Mermelada,150,0
+Mermelada de sandia,196,Mermelada,180,0
+Mermelada de uva,,Mermelada,210,0
+Burrito,97,Mexicano,60,0
+Nachos,112,Mexicano,180,0
+Salsa de chile,144,Mexicano,120,0
+Taco,109,Mexicano,90,0
+Sofá,100,Muebles,,0
+Galletas,44,Panaderia,13,0
+Pan de patata,158,Panaderia,54,0
+Pizza,68,Panaderia,108,0
+Pan,5,Panaderia,4,0
+Bagel,55,Panaderia,27,0
+Pan de platano,294,Panaderia,81,0
+Papel,19,Papel,90,0
+Papel de cocina,39,Papel,150,0
+Papel de pared,87,Papel,180,0
+Libro,,Papel,199,0
+Brownie,128,Pastitas,34,0
+Macaroon de coco,253,Pastitas,76,0
+Tarta de limon,285,Pastitas,102,0
+Tarta de fruta,68,Pastitas,25,0
+Pastelito,93,Pastitas,51,0
+Donut,149,Pastitas,76,0
+Galleta de jengibre,70,Pastitas,51,0
+Tarta de queso,160,Pastitas,153,0
+Botella de plastico,91,Plasticos,85,0
+Pelota,235,Plasticos,114,0
+Juguetes,131,Plasticos,42,0
+Lancha hinchabke,236,Plasticos,142,0
+Beicon,32,Porcina,420,1
+Abrigo,125,Sastreria,114,0
+Camisa,45,Sastreria,57,0
+Sombrero,213,Sastreria,142,0
+Sueter,76,Sastreria,85,0
+Traje,330,Sastreria,228,0
+Vestido,268,Sastreria,171,0
+Seda,140,Textil,81,0
+Tela de algodon,37,Textil,27,0
+Ovillo,,Textil,36,0
+Leche,7,Vaqueriza,20,1
+Gamba,97,Isla del pescador,480,1
+Pescado,61,Isla del pescador,480,1
+Langosta,131,Isla del pescador,480,1
+Hamburguesa de pescado,184,Comida Rápida,45,0

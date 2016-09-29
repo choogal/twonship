@@ -1,0 +1,157 @@
+<?
+include_once('../includes/setting.php');
+
+if ($_POST['ajax']) {
+	switch ($_POST['action_type']) {
+		case 'save_recipe':
+			//print_r($_POST);
+			if ($recipeId = item_recipe::save($_POST['fk_items_id'], $_POST['fk_recipe_id'], $_POST['amount'])) {
+				header('Content-Type: application/json; charset=utf-8');
+				echo '{"successful":true, "id":"'.$recipeId.'"}';
+			} else echo 'KO';
+			break;
+		case 'delete_recipe':
+			if (item_recipe::delete($_POST['id'])) {
+				echo 'OK';
+			} else {
+				echo 'KO';
+			}
+			break;
+		case 'delete_item':
+			if (item::delete($_POST['id'])) {
+				echo 'OK';
+			} else {
+				echo 'KO';
+			}
+			break;
+		default:
+			# code...
+			break;
+	}
+	exit;
+}
+$qs = urlencode($_GET['qs']);
+$id = $_GET['id'];
+
+
+include_once('../includes/header.php');
+
+
+if (!empty($_POST['enviar'])) {
+
+	$s_it = new item();
+	$s_it->setAttributes($_POST);
+	//var_dump($s_it->fk_factory_id);
+	if ($s_it->save()) {
+		$id = $s_it->id;
+		var_dump($s_it);
+		$msg = 'Producto creado correctamente';
+	} else {
+		$msg = 'Error al guardar el producto';
+	}
+}
+if (!empty($id)) {
+	$item = new item($id);
+}
+?>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TownShip</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="list_item.html?qs=<?=$qs?>">Listado Productos</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li><?=$msg;?></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Producto</h1>
+  </div>
+<form action="item.html?id=<?echo $id?>&qs=<?=$qs?>" method="post">
+<table class="table">	
+	<tr>
+		<td>Nombre: </td>
+		<td><input type="text" name="name" value="<?echo $item->name;?>"></td>
+	</tr>
+	<tr> 
+		<td>Fábrica:</td>
+		<td><select name="fk_factory_id">
+			<?
+			if ($factories = factory::getAllFactory()) {
+				foreach ((array)$factories as $f_id => $value) {
+					if ($item->fk_factory_id == $f_id) $select = ' selected';
+					else $select = '';
+					echo '<option value="'.$f_id.'"'.$select.'>'.$value['name'].'</option>'."\n";
+				}
+			}
+			?>
+		</select></td>
+	<tr>
+		<td>Valor:</td>
+		<td><input type="text" name="valor" value="<?echo $item->valor;?>"></td>
+	</tr>
+	<tr>
+		<td>Tiempo:</td>
+		<td><input type="text" name="make_time" value="<?echo $item->make_time;?>"></td>
+	</tr>
+	<tr>
+		<td>Es recurso:</td>
+		<td><input type="radio" name="is_resource" value="t" <?if ($item->is_resource == 't') echo "checked";?>>Sí   <input type="radio" name="is_resource" value="f" <?if ($item->is_resource == 'f') echo "checked";?>>No</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Enviar"></td>
+	</tr>
+</table>
+<input type="hidden" name="enviar" value="1">
+<input type="hidden" name="id" value="<?echo $_GET['id']?>">
+<input type="hidden" name="qs" value="<?echo $_GET['qs']?>">
+</form>
+
+<p>Composición</p>
+
+<ul class="list-group" id="list_recipes">
+<?
+	if (!empty($id) and $recipes = item_recipe::getItemRecipeOfItem($id)) {
+		
+		foreach ((array)$recipes as $key => $value) {
+			$producto = item::getItemById($value['fk_recipe_id']);
+		?>
+	
+	<li class=" list-group-item">
+		<span class="badge"><?echo $value['amount']?></span>
+		<?echo $producto['name']?>
+
+		<input class="delete_recipe" data-id="<?=$value['id']?>" type="button" value="Borrar"></li>
+		<?
+		}
+	}
+	?>
+</ul>
+<p id="p_new_recipe">Nuevo: <input type="text" id="new_amount" value="1"><select id="new_fk_recipe_id"><?
+	if ($prods = item::getAllItems()) {
+		foreach ((array)$prods as $p_id => $value) {
+			echo '<option value="'.$p_id.'">'.$value['name'].'</option>'."\n";
+		}
+	}
+
+?></select><input id="create_recipe" data-fkitemsid="<?echo $id?>" type="button" value="Enviar"></p>
+
+</div>
+</body>
+</html>

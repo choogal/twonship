@@ -1,0 +1,24 @@
+<?
+include_once('../includes/setting.php');
+				
+$fields = array('name' => 'Producto', 'valor' => 'Precio', 'factory_name' => 'Fabrica', 'make_time' => 'Tiempo', 'is_resource' => 'Materia prima');
+
+if ($items = item::getAllItems ('all', 'factory_name', 'asc')) {
+	$csv = '';
+	foreach ($fields as $fname => $fvalue) {
+		$csv .= $fvalue.",";	
+	}
+	$csv = substr($csv, 0, -1)."\n";
+	foreach ($items as $value) {
+		foreach ($fields as $fname => $fvalue) {
+			$csv .= $value[$fname].",";
+		}
+		$csv = substr($csv, 0, -1)."\n";
+	}
+
+}
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="FicheroExcelDescarga.xls"');
+header('Cache-Control: max-age=0');
+echo $csv;
+exit;

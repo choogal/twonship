@@ -1,0 +1,89 @@
+<?
+include_once('../includes/setting.php');
+
+
+include_once('../includes/header.php');
+
+if (!empty($_POST['enviar'])) {
+
+	$n_fact = new factory();
+	$n_fact->setAttributes($_POST);
+	//var_dump($s_it->fk_factory_id);
+	$n_fact->save();
+	$name = $n_fact->name;
+	$id = $n_fact->id;
+}
+if(!empty($_GET['id'])) {
+	$id = $_GET['id'];
+	$factory = new factory($id);
+	$name = $factory->name;
+}
+?>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TownShip</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="list_item.html">Listado Productos</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Factoría</h1>
+  </div>
+  
+  
+<form action="factory.html?id=<?echo $id?>" method="post">
+<table class="table">
+	<tr>
+		<td>Nombre: </td>
+		<td><input type="text" name="name" value="<?echo $name;?>"></td>
+	</tr>
+	<tr> 
+		<td>Productos:</td>
+		<td>
+			<ul>
+	<?
+	if (!empty($id) and $productos = item::getItemsByFactoryId($id)) {
+		
+		foreach ($productos as $value) {
+		?>
+		
+			<li><?echo $value['name']?>
+				<ul>
+					<li>Tiempo prod: <?echo $value['make_time']?></li>
+					<li>Precio venta: <?echo $value['valor']?></li>
+				</ul>
+			</li>
+		<?
+		}
+	}
+	?>
+				
+			</ul>
+		</td>	
+	<tr>
+		<td colspan="2"><input type="submit" value="Enviar"></td>
+	</tr>
+</table>
+<input type="hidden" name="enviar" value="1">
+<input type="hidden" name="id" value="<?echo $id?>">
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+Producto,Precio,Fabrica,Tiempo,Materia prima
+Muesli,29,Aperitivos,36,f
+Nachos de maiz,19,Aperitivos,54,f
+Canapé,307,Aperitivos,13,f
+Palomitas,12,Aperitivos,27,f
+Patatas fritas,69,Aperitivos,108,f
+Beicon ahumado,115,Aperitivos,72,f
+Azucar,14,Azúcar,18,f
+Caramelo,45,Azúcar,81,f
+Caramelo de miel,38,Azúcar,135,f
+Sirope,29,Azúcar,36,f
+Algodón,9,Campo cultivo,30,t
+Cacao,19,Campo cultivo,480,t
+Fresa,11,Campo cultivo,60,t
+Maiz,3,Campo cultivo,5,t
+Patata,17,Campo cultivo,240,t
+Pimiento,20,Campo cultivo,300,t
+Pino,15,Campo cultivo,180,t
+Seda,33,Campo cultivo,900,t
+Trigo,1,Campo cultivo,2,t
+Zanahoria,5,Campo cultivo,10,t
+Caña de azucar,7,Campo cultivo,20,t
+Tomate,13,Campo cultivo,120,t
+Arbol de caucho,0,Campo cultivo,720,t
+Chocolate,108,Caramelos,135,f
+Judias de gominola,79,Caramelos,108,f
+Nube de miel,82,Caramelos,243,f
+Palito de caramelo,105,Caramelos,216,f
+Piruleta,117,Caramelos,270,f
+Caramelo tostado,112,Caramelos,162,f
+Panal,22,Colmena,360,t
+Patatas fritas,88,Comida Rápida,60,f
+Batido,30,Comida Rápida,15,f
+Patata asada,111,Comida Rápida,50,f
+Hamburguesa con queso,0,Comida Rápida,30,f
+Sandwich,80,Comida Rápida,40,f
+Hamburguesa de pescado,184,Comida Rápida,45,f
+cinta americana,40,Especial,0,t
+Clavo,100,Especial,0,t
+Destornillador,40,Especial,0,t
+Hacha,200,Especial,0,t
+Ladrillos,40,Especial,0,t
+Losa,40,Especial,0,t
+Madera,40,Especial,0,t
+Martillo,100,Especial,0,t
+Pala,150,Especial,0,t
+Pintura,100,Especial,0,t
+Sierra,300,Especial,0,t
+Bisagra,40,Especial,0,t
+Lingote de oro,204,Fundición,180,t
+Lingote de platino,300,Fundición,240,t
+Lingote plata,144,Fundición,120,t
+Lingote de bronce,96,Fundición,60,t
+Huevo,10,Gallinero,0,t
+Pegamento,111,Goma,108,f
+Plastico,73,Goma,81,f
+Goma,35,Goma,54,f
+Polo,87,Helados,228,f
+Polo de hielo,45,Helados,85,f
+Sorbete de piña,343,Helados,142,f
+Yogur helado,87,Helados,171,f
+Helado,39,Helados,28,f
+Pescado,61,Isla del pescador,480,t
+Langosta,131,Isla del pescador,480,t
+Gamba,97,Isla del pescador,480,t
+Sandía,49,Isla frutia,240,t
+Melocotón,34,Isla frutia,540,t
+Ciruela,72,Isla frutia,540,t
+Uvas,48,Isla oliva,240,t
+Aceitunas,69,Isla oliva,399,t
+Lima,97,Isla oliva,240,t
+Coco,84,Isla tropico,540,t
+Plátano,58,Isla tropico,540,t
+Piña,117,Isla tropico,540,t
+Yogur,53,Lacteos,72,f
+Mantequilla,39,Lacteos,48,f
+Nata,12,Lacteos,12,f
+Yogur de melocoton,157,Lacteos,96,f
+Queso,25,Lacteos,24,f
+Mermelada de uva,196,Mermelada,210,f
+Mermelada de ciruela,299,Mermelada,240,f
+Mermelada de fresa,41,Mermelada,90,f
+Mermelada de melocoton,133,Mermelada,150,f
+Mermelada de sandia,196,Mermelada,180,f
+Taco,109,Mexicano,90,f
+Nachos,112,Mexicano,180,f
+Burrito,97,Mexicano,60,f
+Salsa de chile,144,Mexicano,120,f
+Sofá,100,Muebles,0,f
+Pan,5,Panaderia,4,f
+Pan de platano,294,Panaderia,81,f
+Galletas,44,Panaderia,13,f
+Pan de patata,158,Panaderia,54,f
+Pizza,68,Panaderia,108,f
+Bagel,55,Panaderia,27,f
+Papel de pared,87,Papel,180,f
+Libro,304,Papel,199,f
+Papel de cocina,39,Papel,150,f
+Papel,19,Papel,90,f
+Brownie,128,Pastitas,34,f
+Macaroon de coco,253,Pastitas,76,f
+Tarta de limon,285,Pastitas,102,f
+Tarta de fruta,68,Pastitas,25,f
+Pastelito,93,Pastitas,51,f
+Donut,149,Pastitas,76,f
+Galleta de jengibre,70,Pastitas,51,f
+Tarta de queso,160,Pastitas,153,f
+Pelota,235,Plásticos,114,f
+Juguetes,131,Plásticos,42,f
+Botella de plastico,91,Plásticos,85,f
+Lancha hinchabke,236,Plásticos,142,f
+Beicon,32,Porcina,420,t
+Abrigo,125,Sastreria,114,f
+Camisa,45,Sastreria,57,f
+Vestido,268,Sastreria,171,f
+Traje,330,Sastreria,228,f
+Sueter,76,Sastreria,85,f
+Sombrero,213,Sastreria,142,f
+Seda,140,Textil,81,f
+Ovillo,61,Textil,36,f
+Tela de algodon,37,Textil,27,f
+Leche,7,Vaqueriza,20,t

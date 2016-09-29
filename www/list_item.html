@@ -1,0 +1,124 @@
+<?
+include_once('../includes/setting.php');
+
+if (!empty($_GET['qs'])) {
+	$qString = unserialize($_GET['qs']);
+	
+	$aParams = explode('&', $qString);
+	foreach ($aParams as $value) {
+		$vars = explode('=', $value);
+		$$vars[0] = $vars[1];
+	}
+	
+} else {
+	$ordType = $_GET['ordType'];
+	$ord = $_GET['ord'];
+	$res = $_GET['res'];
+}
+if (empty($ord)) $ord = 'items.name';
+
+if ($ordType == 'asc') $ordTypeN = 'desc';
+else $ordTypeN = 'asc';
+
+//print_r($_SERVER);
+
+include_once('../includes/header.php');
+?>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TownShip</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filtro Productos <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="list_item.html?ordType=<?=$ordType?>&ord=<?=$ord?>&res=res">Materia Prima</a></li>
+            <li><a href="list_item.html?ordType=<?=$ordType?>&ord=<?=$ord?>&res=prod">Productos Elaborados</a></li>
+            <li><a href="list_item.html?ordType=<?=$ordType?>&ord=<?=$ord?>">Todos</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav ">
+      	<li><a href="item.html">Crear producto</a></li>
+      	<li><a href="factory.html">Crear factoría</a></li>
+        <li><a id="export_csv" href="export_list.html?type=csv">Exportar Csv</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Listado de Productos</h1>
+  </div>
+  <div class="panel-body">
+    <?if ($_GET['res'] == 'res') {
+    	$msg = 'Solo Materias Primas';
+	} else if ($_GET['res'] == 'prod') {
+		$msg = 'Solo Productos Elaborados';
+	} 
+	echo $msg;
+	?>
+  </div>
+
+	
+<table class="table">
+	<tr>
+		<td ><strong>ID</strong></td>
+		<td ><a href="list_item.html?ordType=<?=$ordTypeN?>&ord=items.name&res=<?=$res?>"><strong>Nombre</strong></a></td>
+		<td ><a href="list_item.html?ordType=<?=$ordTypeN?>&ord=factory.name&res=<?=$res?>"><span class="glyphicon glyphicon-home"></span> <strong>Fábrica</strong></a></td>
+		<td ><a href="list_item.html?ordType=<?=$ordTypeN?>&ord=items.valor&res=<?=$res?>"><span class="glyphicon glyphicon-euro"></span> <strong>Valor</strong></a></td>
+		<td ><a href="list_item.html?ordType=<?=$ordTypeN?>&ord=items.make_time&res=<?=$res?>"><span class="glyphicon glyphicon-dashboard"></span> <strong>Tiempo</strong></a></td>
+		<td ><a href="list_item.html?ordType=<?=$ordTypeN?>&ord=items.is_resource&res=<?=$res?>"><span class="glyphicon glyphicon-cog"></span> <strong>Tipo</strong></a></td>
+		<td></td>
+	</tr>
+<?
+if ($prods = item::getAllItems($res, $ord, $ordType)) {
+	foreach ($prods as $itemId => $item) {
+		if ($item['is_resource'] == 't') {
+			$resource = 'Materia Prima';
+		} else {
+			$resource = 'Elaborado';
+		}
+		?>
+	<tr id="tr_<?=$itemId?>">
+		<td><a href="item.html?id=<?echo $itemId;?>&qs=<?=urlencode(serialize($_SERVER['QUERY_STRING']))?>"><?echo $itemId;?></a></td>
+		<td><?echo $item['name'];?></td>
+		<td><a href="factory.html?id=<?echo $item['factory_id'];?>&<?=$_SERVER['QUERY_STRING']?>"><?echo $item['factory_name'];?></a></td>
+		<td><?echo $item['valor'];?></td>
+		<td><?echo $item['make_time'];?></td>
+		<td><?echo $resource;?></td>
+		<td><button type="button" class="btn btn-default btn-delete-prod" data-id="<?echo $itemId;?>">Borrar</button></td>
+	</tr>
+		<?
+	}
+}
+
+?>
+	</tr>
+</table>
+</div>
+</body>
+</html>
